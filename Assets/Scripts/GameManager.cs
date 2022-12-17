@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour {
 	[SerializeField] private GameObject playerPrefab;
 	[SerializeField] private GameObject fogObject;
 	[SerializeField] private Transform obstaclesParent;
+	[SerializeField] private GameObject deathScreen;
+	[SerializeField] private CameraFollow cameraFollow;
 
 	[Header("Spawn Points")]
 	[SerializeField] private Transform playerSpawnPoint;
@@ -31,6 +33,10 @@ public class GameManager : MonoBehaviour {
 		GameObject player = Instantiate(playerPrefab, playerSpawnPoint.position, Quaternion.identity);
 		player.transform.SetParent(gameElementsParent);
 
+		cameraFollow._target = player.transform;
+
+		Camera.main.transform.position = new Vector3(0, playerSpawnPoint.position.y, Camera.main.transform.position.z);
+
 		fogObject.transform.position = fogSpawnPoint.position;
 
 		foreach (Transform child in obstaclesParent) {
@@ -38,7 +44,17 @@ public class GameManager : MonoBehaviour {
 		}
 	}
 
+	public void GameOver () {
+		deathScreen.SetActive(true);
+		isPlaying = false;
+		ResetLevel();
+	}
+
 	public void PlayGame () {
 		isMenu = false;
+	}
+
+	public void OpenMenu () {
+		isMenu = true;
 	}
 }

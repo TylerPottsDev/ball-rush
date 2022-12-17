@@ -17,8 +17,7 @@ public class Fog : MonoBehaviour {
 	private void OnTriggerEnter2D (Collider2D other) {
 		if (other.CompareTag("Player")) {
 			Destroy(other.gameObject);
-			Debug.Log("Player Destroyed!");
-			GameManager.instance.isPlaying = false;
+			GameManager.instance.GameOver();
 		}
 	}
 
