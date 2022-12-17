@@ -18,6 +18,8 @@ public class PlayerController : MonoBehaviour {
 	[HideInInspector] public bool attacking;
 	
 	private void Update () {
+		if (!GameManager.instance.isPlaying) return;
+		
 		if (Input.GetMouseButtonDown(0)) StartDrag();
 		if (Input.GetMouseButton(0) && _dragging) Drag();
 		if (Input.GetMouseButtonUp(0) && _dragging) ReleaseDrag();
