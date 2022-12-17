@@ -9,8 +9,6 @@ public class Fog : MonoBehaviour {
 	private void Update () {
 		if (!GameManager.instance.isPlaying) return;
 
-		Debug.Log("Playing");
-		
 		transform.position += Vector3.up * speed * Time.deltaTime;
 	}
 

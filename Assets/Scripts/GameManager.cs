@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour {
 	[SerializeField] private Transform gameElementsParent;
 	[SerializeField] private GameObject playerPrefab;
 	[SerializeField] private GameObject fogObject;
-	[SerializeField] private Transform obstaclesParent;
+	[SerializeField] private ObstacleSpawner spawner;
 	[SerializeField] private GameObject deathScreen;
 	[SerializeField] private CameraFollow cameraFollow;
 
@@ -39,9 +39,7 @@ public class GameManager : MonoBehaviour {
 
 		fogObject.transform.position = fogSpawnPoint.position;
 
-		foreach (Transform child in obstaclesParent) {
-			Destroy(child.gameObject);
-		}
+		spawner.ResetSpawner();
 	}
 
 	public void GameOver () {
@@ -52,6 +50,7 @@ public class GameManager : MonoBehaviour {
 
 	public void PlayGame () {
 		isMenu = false;
+		spawner.StartSpawner();
 	}
 
 	public void OpenMenu () {
