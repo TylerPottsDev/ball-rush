@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour {
 	[HideInInspector] public bool attacking;
 	
 	private void Update () {
-		if (!GameManager.instance.isPlaying) return;
+		if (GameManager.instance.isMenu) return;
 		
 		if (Input.GetMouseButtonDown(0)) StartDrag();
 		if (Input.GetMouseButton(0) && _dragging) Drag();
@@ -38,6 +38,10 @@ public class PlayerController : MonoBehaviour {
 			_dragging = true;
 			lr.enabled = true;
 			lr.positionCount = 2;
+
+			if (!GameManager.instance.isPlaying) {
+				GameManager.instance.isPlaying = true;
+			}
 		}
 	}
 

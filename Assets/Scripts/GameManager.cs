@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour {
 	[SerializeField] private Transform fogSpawnPoint;
 
 	[HideInInspector] public bool isPlaying = false;
+	[HideInInspector] public bool isMenu = true;
 
 	private void Awake() {
 		if (instance == null) {
@@ -35,5 +36,9 @@ public class GameManager : MonoBehaviour {
 		foreach (Transform child in obstaclesParent) {
 			Destroy(child.gameObject);
 		}
+	}
+
+	public void PlayGame () {
+		isMenu = false;
 	}
 }
