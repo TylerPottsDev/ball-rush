@@ -39,6 +39,8 @@ public class GameManager : MonoBehaviour {
 
 		fogObject.transform.position = fogSpawnPoint.position;
 
+		fogObject.GetComponent<Fog>().ResetSpeed();
+
 		spawner.ResetSpawner();
 	}
 

@@ -1030,6 +1030,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obstaclePrefabs:
   - {fileID: 5369417453425968879, guid: e579aa787bb54442a8160760d2479768, type: 3}
+  - {fileID: 5369417453425968879, guid: e579aa787bb54442a8160760d2479768, type: 3}
+  - {fileID: 1797633938548460131, guid: 8972711cdca20474b814373fe17212d8, type: 3}
   obstacleParent: {fileID: 681686897}
   spawnDistance: 12
   initialSpawnAmount: 3
@@ -1264,7 +1266,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 829422678}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: ResetLevel
+        m_MethodName: PlayGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2781,7 +2783,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae80a0a17df5943e2a932a9311a3c402, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2.5
+  maxSpeed: 2.5
 --- !u!61 &2131804836
 BoxCollider2D:
   m_ObjectHideFlags: 0
